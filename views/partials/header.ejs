@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aleo&display=swap" rel="stylesheet">
+  <title><%= title %></title>
+</head>
+<body>
+  <nav>
+    <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>><span style="color:#4285F4">a</span><span style="color:#DB4437">d</span><span style="color:#F4B400">d</span> Flight</a>
+    <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>><span style="color:#DB4437">a</span><span style="color:#0F9D58">l</span><span style="color:#4285F4">l</span> Flights</a>
+  </nav>
+  <main>
+    <h1><%= title %></h1>

@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+<div class="showGridBox">
+    <h1>Departure</h1>
+    <h1>Arrival</h1>
+    <div class="Departure">
+        <thead>
+            <label>Airport:</label>
+            <th><%= flight.airport %></th>
+            <label>Airline:</label>
+            <th><%= flight.airline %></th>
+            <label>Flight Number:</label>
+            <th><%= flight.flightNo %></th>
+            <% function formatDate(date) { %>
+                <% var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November", "December"]; %>
+                
+                <% var day = date.getDate(); %>
+                <% var monthIndex = date.getMonth(); %>
+                <% var year = date.getFullYear(); %>
+                
+                <% return day + ' ' + monthNames[monthIndex] + ' ' + year; %>
+                <% } %>
+                <% let date = formatDate(flight.departs) %>
+                <label>Departure:</label>
+                <td><%= date %></td>
+        </thead>
+    </div>
+    <div class="arrival">
+        
+    </div>
+    <div class="detaiDiv">
+        <form action="/flights/flight._id/airports" method="POST">
+            <label for="">Airport:</label>
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DAL">DAL</option>
+                <option value="LAX">LAX</option>
+                <option value="SEA">SEA</option>
+            </select>
+            <label>Departure:</label>
+            <input type="date" name="departs">
+            <input type="submit" value="Add DETAIL" class="submit">
+        </form>
+    </div>
+
+</div>
+<form action="/flights"><button>Back</button></form>
+
+
+<%- include('../partials/footer') %>

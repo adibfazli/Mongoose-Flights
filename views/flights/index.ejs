@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<div class="list">
+  <h1>Flights List</h1>
+  <table>
+    <thead>
+      <th>Airline</th>
+      <th>Flight Number</th>
+      <th>Departure</th>
+    </thead>
+    <tbody>
+      <% flights.forEach(function(flight){ %>
+      <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.flightNo %></td>
+        <% function formatDate(date) { %>
+          <% var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November", "December"]; %>
+        
+          <% var day = date.getDate(); %>
+          <% var monthIndex = date.getMonth(); %>
+          <% var year = date.getFullYear(); %>
+        
+          <% return day + ' ' + monthNames[monthIndex] + ' ' + year; %>
+        <% } %>
+        <% let date = formatDate(flight.departs) %>
+        <td><%= date %></td>
+        <td><a type="submit" href="/flights/<%= flight._id %>">DETAIL</a></td>
+      </tr>
+      <% })%>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>
