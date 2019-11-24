@@ -25,25 +25,33 @@
         </thead>
     </div>
     <div class="arrival">
-        
-    </div>
-    <div class="detaiDiv">
-        <form action="/flights/flight._id/airports" method="POST">
+        <% flight.destination.forEach(function(d) { %>
             <label for="">Airport:</label>
-            <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DAL">DAL</option>
-                <option value="LAX">LAX</option>
-                <option value="SEA">SEA</option>
-            </select>
-            <label>Departure:</label>
-            <input type="date" name="departs">
-            <input type="submit" value="Add DETAIL" class="submit">
-        </form>
+            <p><%= d.airport %></p>
+            <label for="">Date:</label>
+            <% let dd = formatDate(d.arrival) %>
+            <p><%= dd %></p>
+            <% }); %>
     </div>
-
+    
 </div>
-<form action="/flights"><button>Back</button></form>
+        <div class="detaiDiv">
+            <form action="/flights/<%= flight._id %>/destination" method="POST">
+                <label for="">Airport:</label>
+                <select name="airport">
+                    <option value="AUS">AUS</option>
+                    <option value="DAL">DAL</option>
+                    <option value="LAX">LAX</option>
+                    <option value="SEA">SEA</option>
+                </select>
+                <label>Date:</label>
+                <input type="date" name="arrival">
+                <input type="submit" value="Add DETAIL" class="submit">
+            </form>
+        </div>
+        <%= flight.addedTicket.forEach(t =>   `<p>${t.seat}</p>` )%>
+
+<form action="/flights"><button class="backBtn">Back</button></form>
 
 
 <%- include('../partials/footer') %>

@@ -3,7 +3,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(0, 179, 255);
+  background-image: url(../images/pur.png);
+  background-repeat: no-repeat;
+  background-color: #2C2639;
+  background-position-x: center;
+  background-size: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 nav{
@@ -30,12 +34,23 @@ main{
   align-items: center;
 }
 .mainDiv{
-  border: solid gray 1px;
-  border-radius: 20px;
-  box-shadow: 5px 5px 20px gray;
-  padding: 15px;
+  margin-top: 15%;
+  color: white;
+  text-align: center;
+
+}
+.mainDiv h1{ 
+  font-size: 40px;
+}
+.mainDiv a{
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  
 }
 .list{
+  color: white;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -43,8 +58,27 @@ main{
   border: solid black 1px;
   border-radius: 20px;
   width: auto;
-  background-color: rgba(255, 255, 255, 0.666);
-  box-shadow: 20px 20px 50px rgb(23, 23, 23);
+  background-color: rgba(0, 0, 0, 0.568);
+  box-shadow: 10px 10px 10px rgba(23, 23, 23, 0.425);
+  padding: 15px;
+  /* transition: 1.5s; */
+}
+th {padding: 10px 40px;   }
+tr td:nth-child(1), tr td:nth-child(2){ text-align:center }
+#detailBtn{
+  text-decoration: none;
+  border: black solid 1px;
+  border-radius: 20px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  background-color: #F5B943;
+  color: #24354B;
+}
+#detailBtn:hover{
+  transition: .3s;
+  background-color: #24354B;
+  color: #F5B943;
 }
 .list thead{
   font-size: 40px;
@@ -55,15 +89,19 @@ main{
 }
 #new-form{
   color: white;
-  border: solid black 1px;
-  border-radius: 20px;
-  background-color:rgba(0, 0, 0, 0.666);
+  /* background-color:rgba(0, 0, 0, 0.666); */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5%;
 }
-
+.addBoxMain{
+  display: block;
+  position: relative;
+  border: solid black 1px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.568);
+}
 .addBox{
   width: auto;
   height: 400px;
@@ -93,14 +131,17 @@ text-align: center;
   width: 150px;
   height: 50px;
   transition: 0.3s;
+  background-color: #F5B943;
+  color: #24354B;
 }
 .submit:hover{
-  background-color: black;
-  color: white;
+  background-color: #24354B;
+  color: #F5B943;
 }
 .Departure{
+  color: white;
   padding: 10px;
-  background-color:rgba(255, 255, 255, 0.666) ;
+  background-color:rgba(0, 0, 0, 0.568);
   border: solid black 1px;
   border-radius: 20px;
   width: 500px;
@@ -108,19 +149,18 @@ text-align: center;
   font-size: 30px;
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1rem;
+  /* grid-gap: 1rem; */
 }
 .arrival{
+  color: white;
   padding: 10px;
-  background-color:rgba(255, 255, 255, 0.666) ;
+  background-color:rgba(0, 0, 0, 0.568) ;
   border: solid black 1px;
   border-radius: 20px;
   width: 500px;
-  /* height: auto; */
   font-size: 30px;
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1rem;
 }
 .showGridBox{
   display: grid;
@@ -128,15 +168,95 @@ text-align: center;
   grid-gap: 1rem;
 }
 .detaiDiv{
+  margin-top: 13px;
+  text-align: center;
+  color: white;
   display: grid;
   grid-template-columns: auto;
   grid-gap: 1rem;
   padding: 10px;
-  background-color:rgba(255, 255, 255, 0.666) ;
+  padding-bottom: 19px;
+  background-color:rgba(0, 0, 0, 0.568);
   border: solid black 1px;
   border-radius: 20px;
   width: 500px;
 }
+.detaiDiv select{
+  font-size: 20px;
+  outline: none;
+}
+.detaiDiv input{
+  font-size: 20px;
+border-radius: 20px;
+outline: none;
+text-align: center;
+}
+.detaiDiv .submit{
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+}
+.backBtn{
+  outline: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  margin: 30px;
+  font-size: 16px;
+  background-color: #F5B943;
+  color: #24354B;
+}
+.backBtn:hover{
+  transition: .3s;
+  background-color: #24354B;
+  color: #F5B943;
+}
+.ticket{
+  width: 600px;
+  height: 405px;
+  background-image: url(../images/tickets2.png);
+  background-size:100% ;
+  background-repeat: no-repeat;
+}
+.ticketForm{
+  width: 50%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-top: 20%;
+  margin-left: 12%;
+  font-size: 30px;
+}
+.ticketForm input {
+  width: 120px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: solid black 1px;
+  background-color: rgba(36, 53, 75, 0.24);
+  outline: none;
+  text-align: center;
+}
+.ticketForm button{
+  outline: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  margin-top: 38%;
+  margin-left: 112%;
+  font-size: 16px;
+  background-color: #F5B943;
+  color: #24354B;
+}
+.ticketForm button:hover{
+  transition: .3s;
+  background-color: #24354B;
+  color: #F5B943;
+}
+
+
+
+
+
 @media only screen and (min-width: 700px) {
   nav{
     width: 70%;

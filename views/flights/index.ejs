@@ -1,6 +1,5 @@
 <%- include('../partials/header') %>
 <div class="list">
-  <h1>Flights List</h1>
   <table>
     <thead>
       <th>Airline</th>
@@ -23,7 +22,7 @@
         <% } %>
         <% let date = formatDate(flight.departs) %>
         <td><%= date %></td>
-        <td><a type="submit" href="/flights/<%= flight._id %>">DETAIL</a></td>
+        <td><a id="detailBtn" type="submit" href="/flights/<%= flight._id %>">DETAIL</a></td>
       </tr>
       <% })%>
     </tbody>
