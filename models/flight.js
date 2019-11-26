@@ -32,7 +32,7 @@ var flightSchema = new Schema({
         default: "LAX"
     },
     destination: [destinationSchema] ,
-    addedTicket: [{type: Schema.Types.ObjectId, ref: 'Tickets'}]
+    addedTicket: []
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

@@ -2,9 +2,10 @@ var express= require('express');
 var router = express.Router();
 var ticketCtrl = require('../controller/tickets');
 
-router.get('/tickets/new' , ticketCtrl.new);
-router.post('/tickets' , ticketCtrl.create);
-router.post('/flights/:id/tickets' , ticketCtrl.addTicket)
+router.get('/flights/:id/tickets/new' , ticketCtrl.new);
+router.post('/flights/:id/tickets' , ticketCtrl.create);
+router.post('/flights/:id' , ticketCtrl.addTicketToflight);
+// router.post('/flights/:id/tickets/new' , ticketCtrl.addTicket)
 
 
 

@@ -11,45 +11,65 @@
             <label>Flight Number:</label>
             <th><%= flight.flightNo %></th>
             <% function formatDate(date) { %>
-                <% var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November", "December"]; %>
-                
-                <% var day = date.getDate(); %>
-                <% var monthIndex = date.getMonth(); %>
-                <% var year = date.getFullYear(); %>
-                
-                <% return day + ' ' + monthNames[monthIndex] + ' ' + year; %>
-                <% } %>
-                <% let date = formatDate(flight.departs) %>
-                <label>Departure:</label>
-                <td><%= date %></td>
+            <% var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November", "December"]; %>
+
+            <% var day = date.getDate(); %>
+            <% var monthIndex = date.getMonth(); %>
+            <% var year = date.getFullYear(); %>
+
+            <% return day + ' ' + monthNames[monthIndex] + ' ' + year; %>
+            <% } %>
+            <% let date = formatDate(flight.departs) %>
+            <label>Departure:</label>
+            <td><%= date %></td>
         </thead>
     </div>
     <div class="arrival">
         <% flight.destination.forEach(function(d) { %>
-            <label for="">Airport:</label>
-            <p><%= d.airport %></p>
-            <label for="">Date:</label>
-            <% let dd = formatDate(d.arrival) %>
-            <p><%= dd %></p>
-            <% }); %>
+        <p>Airport:</p>
+        <p><%= d.airport %></p>
+        <p>Date:</p>
+        <% let dd = formatDate(d.arrival) %>
+        <p><%= dd %></p>
+        <p style="color: #F5B943;">_________________</p>
+        <p style="color: #F5B943;">________________</p>
+        <% }); %>
     </div>
-    
+
 </div>
-        <div class="detaiDiv">
-            <form action="/flights/<%= flight._id %>/destination" method="POST">
-                <label for="">Airport:</label>
-                <select name="airport">
-                    <option value="AUS">AUS</option>
-                    <option value="DAL">DAL</option>
-                    <option value="LAX">LAX</option>
-                    <option value="SEA">SEA</option>
-                </select>
-                <label>Date:</label>
-                <input type="date" name="arrival">
-                <input type="submit" value="Add DETAIL" class="submit">
-            </form>
-        </div>
-        <%= flight.addedTicket.forEach(t =>   `<p>${t.seat}</p>` )%>
+<div class="detaiDiv">
+    <form action="/flights/<%= flight._id %>/destination" method="POST">
+        <label for="">Airport:</label>
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DAL">DAL</option>
+            <option value="LAX">LAX</option>
+            <option value="SEA">SEA</option>
+        </select>
+        <label>Date:</label>
+        <input type="date" name="arrival">
+        <input type="submit" value="Add DETAIL" class="submit">
+    </form>
+</div>
+<div class="allTickets">
+    <% flight.addedTicket.forEach(function(d) { %>
+    <p>seat:</p>
+    <p><%= d.seat %></p>
+    <p>Price:</p>
+    <p>$<%= d.price %></p>
+    <p style="color: #F5B943;">_________________</p>
+    <p style="color: #F5B943;">________________</p>
+    <% }); %>
+</div>
+<div class="addingTicketToFlight">
+    <form id="add-per-to-cast" action="/flights/<%= flight._id%>" method="POST">
+        <select name="flightId">
+            <%- tickets.map(t => `<option value="${t._id}">${t.seat}</option>`) %>
+        </select>
+        <button type="submit">Add to Flight</button>
+    </form>
+</div>
+<a href="/flights/<%= flight._id %>/tickets/new" class="makeTicketBtn">M a k e - T i c k e t</a>
 
 <form action="/flights"><button class="backBtn">Back</button></form>
 

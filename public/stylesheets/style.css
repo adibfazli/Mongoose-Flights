@@ -22,10 +22,16 @@ nav{
   background-repeat: no-repeat;
 }
 nav a{
+  padding: 0;
   margin-top: 10%;
   font-size: 20px;
   color: black;
   text-decoration: none;
+}
+.showGridBox h1 {
+  color: white;
+  text-shadow:5px 5px 5px black ;
+  
 }
 main{
   font-family: 'Aleo', serif;
@@ -39,15 +45,22 @@ main{
   text-align: center;
 
 }
+.mainDiv span{ 
+  font-size: 25px;
+}
 .mainDiv h1{ 
   font-size: 40px;
 }
 .mainDiv a{
+  padding: 0 20px 0 20px;
   font-size: 20px;
   display: inline-block;
   text-decoration: none;
   color: white;
-  
+}
+.mainDiv a:hover{
+  padding: 0;
+  transition: .5s;
 }
 .list{
   color: white;
@@ -154,6 +167,8 @@ text-align: center;
 .arrival{
   color: white;
   padding: 10px;
+  padding-top: 0;
+  padding-bottom:50px ;
   background-color:rgba(0, 0, 0, 0.568) ;
   border: solid black 1px;
   border-radius: 20px;
@@ -161,6 +176,7 @@ text-align: center;
   font-size: 30px;
   display: grid;
   grid-template-columns: auto auto;
+  grid-auto-rows: 2rem;
 }
 .showGridBox{
   display: grid;
@@ -253,9 +269,66 @@ text-align: center;
   color: #F5B943;
 }
 
-
-
-
+.allTickets{
+  margin-top: 13px;
+  color: white;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 50px;
+  background-color:rgba(0, 0, 0, 0.568);
+  border: solid black 1px;
+  border-radius: 20px;
+  width: 500px;
+  font-size: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 2rem;
+}
+.addingTicketToFlight{
+  text-align: center;
+  color: white;
+  padding: 10px;
+  background-color:rgba(0, 0, 0, 0.568);
+  border: solid black 1px;
+  border-radius: 20px;
+  width: 500px;
+  font-size: 30px;
+}
+.addingTicketToFlight select{
+  font-size: 30px;
+  outline: none;
+}
+.addingTicketToFlight button{
+  outline: none;
+  /* width: 100px; */
+  height: 40px;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: #F5B943;
+  color: #24354B;
+}
+.addingTicketToFlight button:hover{
+  transition: .3s;
+  background-color: #24354B;
+  color: rgb(48, 45, 39);
+}
+.makeTicketBtn{
+  margin-top: 12px;
+  border: solid white 1px;
+  border-radius: 20px;
+  width: 518px;
+  height: 40px;
+  text-align: center;
+  font-size: 35px;
+  text-decoration: none;
+  background-color: #F5B943;
+  color: #24354B;
+}
+.makeTicketBtn:hover{
+  color: #F5B943;
+  background-color: #24354B;
+  transition: .3s;
+}
 
 @media only screen and (min-width: 700px) {
   nav{
